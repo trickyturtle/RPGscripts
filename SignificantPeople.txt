@@ -1,0 +1,19 @@
+Parent
+*
+Grandparent
+*
+Sibling
+*
+Child
+*
+Partner
+*
+Person who taught you highest job skill
+*
+Childhood Friend
+*
+Famous Person/idol/hero (may not have met)
+*
+Fellow Investigator
+*
+NPC
