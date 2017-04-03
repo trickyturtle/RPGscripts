@@ -1,6 +1,9 @@
 require 'yaml'
 require_relative 'character'
+require_relative 'dice'
 class CoCchar
+	include Dice
+
 	def initialize()
 		@str = 0
 		@con = 0
@@ -29,19 +32,6 @@ class CoCchar
 		@stats = []
 
 	end
-
-	def D(sides)
-		return rand(sides) + 1
-	end
-
-	def roll(sides, num)
-		total = 0
-		num.times do
-			total += rand(sides) + 1
-		end
-		return total
-	end
-
 
 	def learn()
 		impRoll = D(100)
