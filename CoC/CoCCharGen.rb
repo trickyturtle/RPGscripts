@@ -1,4 +1,5 @@
-
+require 'yaml'
+require_relative 'character'
 class CoCchar
 	def initialize()
 		@str = 0
@@ -425,7 +426,7 @@ class CoCchar
 		when 10
 			puts "ambitious"
 		end
-		looks = File.readlines('looks.txt')
+		looks = File.readlines("#{File.expand_path(Dir.pwd)}/Lists/looks.txt")
 		puts "You look " + looks[rand(looks.size)]
 	end
 
@@ -545,7 +546,7 @@ class CoCchar
 		statStrings = ["strength", "constitution", "power", "dexterity", "appearance", "luck", "intelligence", "size", "education", "age", "build", "Damage Bonus", "hp", "move", "sanity", "magic points", "personal interest points"]
 		saveData = statStrings.zip @stats
 
-		occupations = File.readlines('Occupations.txt')
+		occupations = File.readlines("#{File.expand_path(Dir.pwd)}/Lists/Occupations.txt")
 		puts "Job: " + occupations[rand(occupations.size)]
 
 		personality(true)
@@ -553,6 +554,13 @@ class CoCchar
 
 		saveData.each do | name, stat |
 			puts name.to_s + ": " + stat.to_s
+		end
+
+		response = gets.chomp("would you like to save the character y/n?")
+		if (response = 'y')
+			response = gets("What do you want to name the character?")
+			generatedChar = Character.new("#{response}", saveData, "null", "null")
+			testguy.saveCharacter
 		end
 
 	end
