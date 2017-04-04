@@ -1,6 +1,6 @@
 require 'yaml'
 require_relative 'character'
-require_relative 'dice'
+require_relative '../lib/dice'
 class CoCchar
 	include Dice
 
@@ -416,7 +416,7 @@ class CoCchar
 		when 10
 			puts "ambitious"
 		end
-		looks = File.readlines("#{File.expand_path(Dir.pwd)}/Lists/looks.txt")
+		looks = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/looks.txt")
 		puts "You look " + looks[rand(looks.size)]
 	end
 
@@ -536,7 +536,7 @@ class CoCchar
 		statStrings = ["strength", "constitution", "power", "dexterity", "appearance", "luck", "intelligence", "size", "education", "age", "build", "Damage Bonus", "hp", "move", "sanity", "magic points", "personal interest points"]
 		saveData = statStrings.zip @stats
 
-		occupations = File.readlines("#{File.expand_path(Dir.pwd)}/Lists/Occupations.txt")
+		occupations = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/Occupations.txt")
 		puts "Job: " + occupations[rand(occupations.size)]
 
 		personality(true)
@@ -546,11 +546,13 @@ class CoCchar
 			puts name.to_s + ": " + stat.to_s
 		end
 
-		response = gets.chomp("would you like to save the character y/n?")
-		if (response = 'y')
-			response = gets("What do you want to name the character?")
-			generatedChar = Character.new("#{response}", saveData, "null", "null")
-			testguy.saveCharacter
+		puts "would you like to save the character y/n?"
+		response = gets.chomp
+		if (response == 'y')
+			puts "What do you want to name the character?"
+			response = gets.chomp
+			generatedCharacter = Character.new("#{response}", saveData, "null", "null")
+			generatedCharacter.saveCharacter
 		end
 
 	end

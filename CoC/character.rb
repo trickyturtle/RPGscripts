@@ -15,7 +15,7 @@ class Character
   end
 
   def saveCharacter()
-    File.open("#{@name.delete(' ')}.yml", "w") {|f| f.write(self.to_yaml) }
+    File.open(File.expand_path("Characters/#{@name.delete(' ')}.yml"), "w") {|f| f.write(self.to_yaml) }
   end
 
 end
