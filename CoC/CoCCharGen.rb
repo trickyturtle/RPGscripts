@@ -36,8 +36,8 @@ class CoCchar
 	end
 
 	def learn()
-		impRoll = D(100)
-		if impRoll > @educ
+		improvementRoll = D(100)
+		if improvementRoll > @educ
 			@educ += D(10)
 		end
 	end
@@ -70,9 +70,9 @@ class CoCchar
 				@luck = newLuck
 			end
 		elsif @age < 20
-			minus = D(5)
-			@str -= minus
-			@siz -= (5 - minus)
+			ageDecrease = D(5)
+			@str -= ageDecrease
+			@siz -= (5 - ageDecrease)
 			@educ -= 5
 			newLuck = roll(6, 3) * 5
 			if newLuck > @luck
