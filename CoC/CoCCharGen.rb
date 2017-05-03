@@ -6,6 +6,7 @@ class CoCchar
 	include Dice
 	include Birth
 
+	#TODO Joe, this is the class contructor. Basically, it says how the class variables are initialized. @variable means that the variable is part of any object of the class, and can be accessed by any of the class's methods. If I just said "sanity = 0" rather than "@sanity = 0", the sanity variable would be thrown away after the class ended (variables only last as long as the function they are in, unless they are class/instance variables)
 	def initialize()
 		@str = 0
 		@con = 0
@@ -32,10 +33,11 @@ class CoCchar
 
 		@PIpoints = 0
 		@stats = []
-
+		#TODO Joe, end is basically a closing bracket in ruby.
 	end
 
 	def learn()
+		#TODO Joe, here I am calling D(), which is a dice function I wrote. You can find it in the lib folder. I can do this because I imported it at the top.
 		improvementRoll = D(100)
 		if improvementRoll > @educ
 			@educ += D(10)
@@ -79,6 +81,7 @@ class CoCchar
 				@luck = newLuck
 			end
 		elsif @age < 40
+			#TODO Joe, self is exactly what is sounds like. the object tells itself to run the function. Often it isn't needed (it's usually implied by the scope), I just put it in for clarity. By that I mean self.learn() will do the exact same thing here as learn()
 			self.learn()
 
 		elsif @age < 50
@@ -117,6 +120,7 @@ class CoCchar
 	end
 
 	def personality(isBTraitsEnabled)
+		#TODO Joe, note that here I am not using self. There is no reason for that, I'm just illustrating that "self.function()" typically is the same as "function()". In practice, I shouldn't do this, because it is inconsistent but I'm leaving it in for now to serve as an example.
 		ideology()
 		possessions()
 		sigPeople()
@@ -130,6 +134,7 @@ class CoCchar
 	def ideology()
 		pick = D(10)
 		puts ""
+		#TODO Joe, this is a ruby version of a switch statement.
 		case pick
 			#TODO randomize specifics
 		when 1
@@ -304,6 +309,7 @@ class CoCchar
 		puts ""
 	end
 
+	#TODO Joe, this class makes sure that none of the stats are negative. note that it ignores any stats that are strings...so we need to make sure the numbered stats don't accidentally get converted into strings.
 	def setMin()
 		for @stat in @stats
 			if @stat.class == String
@@ -391,7 +397,7 @@ class CoCchar
 		statStrings = ["strength", "constitution", "power", "dexterity", "appearance", "luck", "intelligence", "size", "education", "age", "build", "Damage Bonus", "hp", "move", "sanity", "magic points", "personal interest points"]
 		saveData = statStrings.zip @stats
 
-
+		#TODO Joe, this is just reading a file.
 		occupations = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/Occupations.txt")
 		puts "Job: " + occupations[rand(occupations.size)]
 
@@ -403,10 +409,12 @@ class CoCchar
 		end
 
 		puts "would you like to save the character y/n?"
+		#TODO Joe, gets just waits for user input (in the console, which is why this won't run in atom anymore) and then stores it in the variable. .chomp removes trailing whitespace or newlines
 		response = gets.chomp
 		if (response == 'y')
 			puts "What do you want to name the character?"
 			response = gets.chomp
+			#TODO Joe, Character.new is creating a new character object. .new will always call the initialize() fuction for that class. You can go look at character.rb's initialize class to see what it's doing.
 			generatedCharacter = Character.new("#{response}", saveData, "null", "null")
 			generatedCharacter.saveCharacter
 		end
