@@ -413,13 +413,15 @@ class CoCchar
 
 	end
 end
-gen  = CoCchar.new()
+
 puts "'load' or create new character?"
 doLoad = gets.chomp
 if doLoad = "load"
-	puts "enter filename (Characters/...)"
-	filename = gets.chomp
+	puts "Enter character name"
+	name = gets.chomp
 	character = Character.new
-	character.loadCharacter("#{File.expand_path(Dir.pwd)}/Characters/#{filename}")
+	character.loadCharacter("#{File.expand_path(Dir.pwd)}/Characters/#{filename.delete(' ')}.yml")
+else
+	gen  = CoCchar.new()
+	gen.generate()
 end
-gen.generate()
