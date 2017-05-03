@@ -1,0 +1,39 @@
+--- !ruby/object:Character
+name: AAA
+stats:
+- - strength
+  - 15
+- - constitution
+  - 66
+- - power
+  - 55
+- - dexterity
+  - 45
+- - appearance
+  - 40
+- - luck
+  - 70
+- - intelligence
+  - 50
+- - size
+  - 70
+- - education
+  - 90
+- - age
+  - 53
+- - build
+  - 0
+- - Damage Bonus
+  - None
+- - hp
+  - 13
+- - move
+  - 7
+- - sanity
+  - 55
+- - magic points
+  - 11
+- - personal interest points
+  - 100
+skills: 'null'
+status: 'null'
