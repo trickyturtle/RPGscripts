@@ -49,14 +49,14 @@ end
 
 
 
-form = Formatter.new
-puts Dir.pwd
-puts "space or nums?"
-choice = gets.chomp
-puts "name?"
-filename = gets.chomp
-if choice == "s"
-  form.spaces(filename)
-else
-  form.nums(filename)
-end
+# form = Formatter.new
+# puts Dir.pwd
+# puts "space or nums?"
+# choice = gets.chomp
+# puts "name?"
+# filename = gets.chomp
+# if choice == "s"
+#   form.spaces(filename)
+# else
+#   form.nums(filename)
+# end

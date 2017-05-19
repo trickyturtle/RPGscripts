@@ -1,0 +1,83 @@
+Accounting (05%)
+Acting (05%)—see Art/Craft
+Animal Handling (05%) [Uncommon]
+Anthropology (01%)
+Appraise (05%)
+Archaeology (01%)
+Art and Craft (05%) [Specializations]
+Artillery (01%) [Uncommon]
+Astronomy (01%)—see Science
+Axe (15%)—see Fighting
+Biology (01%)—see Science
+Botany (01%)—see Science
+Bow (15%)—see Firearms
+Brawl (25%)—see Fighting
+Chainsaw (10%)—see Fighting
+Charm (15%)
+Chemistry (01%)—see Science
+Climb (20%)
+Computer Use (05%) [Modern]
+Credit Rating (00%)
+Cryptography (01%)—see Science
+Cthulhu Mythos (00%)
+Demolitions (01%) [Uncommon]
+Disguise (05%)
+Diving (01%)
+Dodge (half DEX)
+Drive Auto (20%)
+Electrical Repair (10%)
+Electronics (01%) [Modern]
+Fast Talk (05%)
+Fine Art (05%)—see Art and Craft
+First Aid (30%)
+Flail (10%)—see Fighting
+Flamethrower (10%)—see Firearms
+Forensics (05%)—see Science
+Forgery (01%)—see Art and Craft
+Garrote (15%)—see Fighting
+Geology (01%)—see Science
+Handgun (20%)—see Firearms
+Heavy Weapons (10%)—see Firearms
+History (05%)
+Hypnosis (01%) [Uncommon]
+Intimidate (15%)
+Jump (20%)
+Language (Other) (01%) [Specializations]
+Language (Own) (EDU)
+Law (05%)
+Library Use (20%)
+Listen (20%)
+Locksmith (01%)
+Machine Gun (10%)—see Firearms
+Mathematics (01%)—see Science
+Mechanical Repair (10%)
+Medicine (01%)
+Meteorology (01%)—see Science
+Natural World (10%)
+Navigate (10%)
+Occult (05%)
+Operate Heavy Machinery (01%)
+Persuade (10%)
+Pharmacy (01%)—see Science
+Photography (05%)—see Art and Craft
+Physics (01%)—see Science
+Pilot (01%) [Specializations]
+Psychoanalysis (01%)
+Psychology (10%)
+Read Lips (01%) [Uncommon]
+Ride (05%)
+Rifle (25%)—see Firearms
+Science (01%) [Specializations]
+Shotgun (25%)—see Firearms (Rifle/Shotgun)
+Sleight of Hand (10%)
+Spear (20%)—see Firearms (or Throw)
+Spot Hidden (25%)
+Stealth (20%)
+Submachine Gun (15%)—see Firearms
+Survival (10%) [Specializations]
+Sword (20%)—see Fighting
+Swim (20%)
+Throw (20%)
+Track (10%)
+Whip (05%)—see Fighting
+Zoology (01%)—see Science

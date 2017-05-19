@@ -1,0 +1,10 @@
+Strength
+Size
+Dexterity
+Constitution
+Appearance
+Intelligence
+Education
+Power
+Luck
+Age

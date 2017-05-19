@@ -4,7 +4,11 @@ class Character
   #TODO Joe here I am initializing default values. Initialize is the constructor method in ruby
   def initialize(name = "Default", stats = {}, skills = {}, status = {})
     @name = name
-    @stats = stats
+    statNames = File.readlines("#{File.expand_path(Dir.pwd)}/lib/Stats.txt")
+    @stats = {}
+    for stat in statNames
+      @stats[:stat] = 0
+    end
     @skills = skills
     @status = status
   end
