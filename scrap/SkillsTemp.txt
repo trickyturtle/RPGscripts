@@ -1,0 +1,83 @@
+Accounting_5
+Acting_5
+Animal Handling_5
+Anthropology_1
+Appraise_5
+Archaeology_1
+Art and Craft_5
+Artillery_1
+Astronomy_1
+Axe_15
+Biology_1
+Botany_1
+Bow_15
+Brawl_25
+Chainsaw_10
+Charm_15
+Chemistry_1
+Climb_20
+Computer Use_5
+Credit Rating_0
+Cryptography_1
+Cthulhu Mythos_0
+Demolitions_1
+Disguise_5
+Diving_1
+Dodge_1000
+Drive Auto_20
+Electrical Repair_10
+Electronics_1
+Fast Talk_5
+Fine Art_5
+First Aid_30
+Flail_10
+Flamethrower_10
+Forensics_5
+Forgery_1
+Garrote_15
+Geology_1
+Handgun_20
+Heavy Weapons_10
+History_5
+Hypnosis_1
+Intimidate_15
+Jump_20
+Language (Other)_1
+Language (Own)_1000
+Law_5
+Library Use_20
+Listen_20
+Locksmith_1
+Machine Gun_10s
+Mathematics_1
+Mechanical Repair_10
+Medicine_1
+Meteorology_1
+Natural World_10
+Navigate_10
+Occult_5
+Operate Heavy Machinery_1
+Persuade_10
+Pharmacy_1
+Photography_5
+Physics_1
+Pilot_1
+Psychoanalysis_1
+Psychology_10
+Read Lips_1
+Ride_5
+Rifle_25
+Science_1
+Shotgun_25
+Sleight of Hand_10
+Spear_20
+Spot Hidden_25
+Stealth_20
+Submachine Gun_15
+Survival_10
+Sword_20
+Swim_20
+Throw_20
+Track_10
+Whip_5
+Zoology_1

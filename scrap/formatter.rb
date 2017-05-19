@@ -1,14 +1,17 @@
+require 'yaml'
 class Formatter
 #this was made to deal with formatting from names taken from book.  was originally in lib
 
   def spaces(filename)
-    lines = File.readlines("#{Dir.pwd}/#{filename}")
+    stats = {}
+    lines = File.readlines("#{Dir.pwd}/CoC/lib/#{filename}")
     lines.each do |line|
-      names = line.split(" ")
-      names.each do |name|
-        puts name
-      end
+      skill = line.split("_")
+      puts skill
+      stats[skill[0]] = skill[1].to_i
+      puts stats
     end
+    File.open(File.expand_path("Skills.yml"), "w") {|f| f.write(stats.to_yaml) }
   end
 
   def nums(filename)
@@ -60,3 +63,5 @@ end
 # else
 #   form.nums(filename)
 # end
+form = Formatter.new
+form.spaces("SkillsTemp.txt")
