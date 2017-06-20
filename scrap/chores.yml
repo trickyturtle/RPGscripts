@@ -1,0 +1,63 @@
+--- !ruby/object:Chores
+choreHash:
+  trash:
+  - 5
+  - 12
+  recycling:
+  - 4
+  - 11
+  sweep:
+  - 6
+  - 6
+  mop:
+  - 11
+  - 7
+  unloaddishes:
+  - 12
+  - 5
+  loadDishes:
+  - 2
+  - 10
+  litterABOX:
+  - 13
+  - 4
+  WipeCounters:
+  - 3
+  - 2
+  sharedLaundry:
+  - 7
+  - 1
+  guestBath:
+  - 10
+  - 8
+  MowYard:
+  - 14
+  - 14
+  Vacuum:
+  - 1
+  - 9
+  OrganizeMainArea:
+  - 8
+  - 3
+  DavidBath:
+  - 9
+  - 13
+choreList:
+- trash
+- recycling
+- sweep
+- mop
+- unloaddishes
+- loadDishes
+- litterABOX
+- WipeCounters
+- sharedLaundry
+- guestBath
+- MowYard
+- Vacuum
+- OrganizeMainArea
+- DavidBath
+daList: []
+cnList: []
+daTot: 0
+cnTot: 0

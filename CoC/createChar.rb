@@ -1,7 +1,10 @@
 require 'character'
+require 'lib/occupation'
+require 'yaml'
 class CreateCharacter
   def initialize()
     @character = Character.new
+    @occupation = nil
   end
 
   def getName()
@@ -39,20 +42,65 @@ class CreateCharacter
 
   def getStats()
     puts "Enter Stats"
-    puts "Enter Strength:"
-    @str = gets.chomp
+    stats = File.readlines("#{Dir.pwd)}/lib/Stats.txt")
+    for stat in stats
+      puts ""
+      puts "Enter #{stat}: "
+      @character.stats[stat] = gets.chomp.to_i
+    end
   end
 
   def getOccupation()
+    #TODO refactor
+    @occupation = Occupation.new
   end
 
-  def getSkills()
+  # def getSkills()
+  #   puts "Enter 'exit' as a skill to stop"
+  #   puts "Enter skill name: "
+  # 
+  #   while (skillInput = gets.chomp).downcase != "exit"
+  #     getSkill(skillInput)
+  #     puts ""
+  #     puts "Enter skill name: "
+  #   end
+  # end
+
+  def getSkill(skillInput)
+    puts ""
+    puts "Enter num points to add"
+    numInput = gets.chomp
+    puts ""
+
+    while !(@character.skills.key?(input))
+      puts "Not a skill, check spelling and re-enter skill: "
+      skillInput = gets.chomp
+    end
+
+    @character.skills[skillInput] += numInput
   end
 
   def getBackStory()
   end
 
   def getEquipment()
+    getThings("Weapons", 'getWeapon')
+  end
+  def getThings(type, getterMethod)
+    puts "Enter 'exit' as a #{type} to stop"
+    puts "Enter #{type} name: "
+
+    while (thingName = gets.chomp).downcase != "exit"
+      send(:getterMethod, :thingName)
+      puts ""
+      puts "Enter #{type} name: "
+    end
+  end
+
+  def getWeapon(weaponName)
+    puts ""
+    @character.equipment["Weapons"][weaponName]
+    @character.skills[skillInput] += numInput
   end
 
 end
