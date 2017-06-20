@@ -5,6 +5,17 @@ class CreateCharacter
   def initialize()
     @character = Character.new
     @occupation = nil
+
+    getName()
+    #TODO add how many points are available
+    getStats()
+    getOccupation()
+    #puts "You have #{jobPoints} occupation points to spend"
+    #puts "and #{interestPoints} interest points to spend"
+    getSkills()
+    getBackStory()
+    getEquipment()
+
   end
 
   def getName()
@@ -58,13 +69,17 @@ class CreateCharacter
   # def getSkills()
   #   puts "Enter 'exit' as a skill to stop"
   #   puts "Enter skill name: "
-  # 
+  #
   #   while (skillInput = gets.chomp).downcase != "exit"
   #     getSkill(skillInput)
   #     puts ""
   #     puts "Enter skill name: "
   #   end
   # end
+
+  def getSkills()
+    getThings("Skills", "getSkill")
+  end
 
   def getSkill(skillInput)
     puts ""
@@ -81,11 +96,13 @@ class CreateCharacter
   end
 
   def getBackStory()
+    puts "Not implemented yet!"
   end
 
   def getEquipment()
     getThings("Weapons", 'getWeapon')
   end
+
   def getThings(type, getterMethod)
     puts "Enter 'exit' as a #{type} to stop"
     puts "Enter #{type} name: "

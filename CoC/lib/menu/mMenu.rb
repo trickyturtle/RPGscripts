@@ -15,7 +15,7 @@ class MainMenu
 
   end
 
-  def menu()
+  def initMenu()
     puts "What would you like to do?"
     puts "(A)uto-create Character"
     puts "(E)dit Character"
