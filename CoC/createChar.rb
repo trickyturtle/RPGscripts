@@ -15,6 +15,7 @@ class CreateCharacter
     getSkills()
     getBackStory()
     getEquipment()
+    @character.saveCharacter()
 
   end
 
