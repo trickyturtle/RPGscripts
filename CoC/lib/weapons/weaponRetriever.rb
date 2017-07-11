@@ -1,11 +1,9 @@
 require 'yaml'
-
+require_relative 'weapon'
 module WeaponRetriever
 
-  def retrieveWeapon()
-    weaponList = YAML.load_file("weaponList.yml")
-    puts "What is the weapon name (pistol, shotgun, etc, not its proper name Ian)"
-    name = gets.chomp.downcase
+  def retrieveWeapon(name)
+    weaponList = YAML.load_file("#{File.expand_path(Dir.pwd)}/lib/weapons/weaponList.yml")
     if weaponList.key?(name)
       weapon = weaponList[name]
     else

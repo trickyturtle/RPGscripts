@@ -1,0 +1,13 @@
+Max Health
+Max Magic
+Max Sanity
+Current Health
+Current Magic
+Current Sanity
+Movement
+Spending Level
+Cash
+Assets
+Major Wound
+Dying
+Unconscious

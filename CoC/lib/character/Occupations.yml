@@ -1,0 +1,81 @@
+---
+Accountant: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '4'
+Acrobat: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Dexterity
+    - '2'
+Stage Actor: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Appearance
+    - '2'
+Film Star: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Appearance
+    - '2'
+Alienist: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '4'
+Agency Detective: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Strength
+    - '2'
+    - Dexterity
+    - '2'
+Animal Trainer: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Appearance
+    - '2'
+    - Power
+    - '2'
+Education 4: !ruby/object:Occupation
+  modifier: []
+Antique Dealer: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '4'
+Archeologist: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '4'
+Architect: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '4'
+Artist: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Dexterity
+    - '2'
+    - Power
+    - '2'
+Asylum Attendant: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Strength
+    - '2'
+    - Dexterity
+    - '2'
+Athlete: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Dexterity
+    - '2'
+    - Strength
+    - '2'

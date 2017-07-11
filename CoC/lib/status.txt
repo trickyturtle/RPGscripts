@@ -1,9 +1,0 @@
-health
-magic
-sanity
-major wound
-dying
-unconscious
-spending level
-cash
-assets

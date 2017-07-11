@@ -8,11 +8,11 @@
 # preferences - yaml
 
 require 'yaml'
-require_relative 'character'
+require_relative '../character/character'
+require_relative '../character/createChar'
 
 class MainMenu
   def initialize()
-
   end
 
   def initMenu()
@@ -22,11 +22,17 @@ class MainMenu
     puts "(M)anually Create Character"
     puts "(G)ame Simulator"
 
-    input = gets.chomp
+    input = gets.chomp.upcase
     case input
     when "A"
+      newCharacter = AutoCreate.new
     when "E"
+      puts "What is the name of the character?\n"
+      name = gets.chomp()
+      character = Character.new()
+      character.saveCharacter
     when "M"
+      newCharacter = CreateCharacter.new
     when "G"
     else
       puts "invalid input"
