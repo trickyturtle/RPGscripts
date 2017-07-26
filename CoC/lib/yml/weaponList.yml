@@ -1,0 +1,10 @@
+---
+Brass Knuckles: !ruby/object:Weapon
+  name: Brass Knuckles
+  skill: Fighting (Brawling)
+  damage: 1D3+1
+  DB: DB
+  range: touch
+  uses: "1"
+  ammo: 0
+  malfunctions: 0

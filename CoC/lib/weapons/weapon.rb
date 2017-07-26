@@ -1,7 +1,7 @@
 require 'yaml'
-# require_relative 'weaponRetriever'
+require_relative '../fileHandler'
 class Weapon
-  # include WeaponRetriever
+  include FileHandler
   def initialize(name)
     @name = name
     @skill = "Skill (Firearms(MG), Firearms(handguns), Brawling, etc)"
@@ -14,18 +14,17 @@ class Weapon
   end
 
   def getData()
-    for item in [@skill, @damage, @DB, @range, @uses]
-      puts "Input #{item}"
-      item = gets.chomp
+    for item in ["@skill", "@damage", "@DB", "@range", "@uses"]
+      puts "Input #{instance_variable_get("#{item}")}"
+      input = gets.chomp
+      instance_variable_set("#{item}",input)
     end
     puts "How much ammo does the magazine hold?"
     @ammo = gets.chomp.to_i
     puts "What is the malfunction chance?"
     @malfunctions = gets.chomp.to_i
-    weaponList = YAML.load_file("#{File.expand_path(Dir.pwd)}/lib/weapons/weaponList.yml")
+    weaponList = loadWeaponList()
     weaponList[@name] = self
-    File.open(File.expand_path("#{File.expand_path(Dir.pwd)}/lib/weapons/weaponList.yml"), "w") {|f| f.write(weaponList.to_yaml) }
+    saveWeaponList(weaponList)
   end
-
-
 end

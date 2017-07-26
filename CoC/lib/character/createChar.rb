@@ -2,9 +2,11 @@ require_relative 'character'
 require_relative '../occupation'
 require_relative '../weapons/weaponRetriever'
 require 'yaml'
+require_relative '../fileHandler'
 
 class CreateCharacter
   include WeaponRetriever
+  include FileHandler
 
   def initialize()
     @character = Character.new()
@@ -18,10 +20,10 @@ class CreateCharacter
     setInitialStatus()
 
     jobPoints = getJobPoints()
-    puts "You have #{jobPoints} occupation points to spend"
+    puts "\nYou have #{jobPoints} occupation points to spend"
 
     interestPoints = @character.stats["Intelligence"] * 2
-    puts "and #{interestPoints} interest points to spend"
+    puts "and #{interestPoints} interest points to spend\n"
     @spentPoints = 0
     @totalPoints = jobPoints + interestPoints
 
@@ -35,16 +37,20 @@ class CreateCharacter
   end
 
   def adjustNumbers()
-    @character.applyAge()
+    puts "\ndo you want to age?"
+    if @character.stats["Age"] && (input = gets.chomp) == "yes"
+      @character.applyAge()
+    end
   end
 
   def setName()
+    puts "What is your name?"
     puts "(C)reate Name"
     puts "(G)enerate Random Name"
     input = gets.chomp
     if input.upcase == "C"
       puts "Enter name:"
-      @character.name = gets.chomp
+      @character.name = getFormatted()
     else
       puts "Enter Gender (M/F):"
       input = gets.chomp
@@ -53,19 +59,20 @@ class CreateCharacter
   end
 
   #M denotes male, anything else is female
+  #TODO refactor
   def generateName(gender)
     if gender.upcase == "M"
-      firstNames = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/maleNames.txt")
+      firstNames = getMaleNames()
     else
-      firstNames = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/femaleNames.txt")
+      firstNames = getFemaleNames()
     end
-    lastNames = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/surNames.txt")
+    lastNames = getSurnames()
     name = "#{firstNames[rand(firstNames.size)].chomp} #{lastNames[rand(lastNames.size)].chomp}"
     puts "You remember your name is #{name}"
     puts "(U)se this name or (G)enerate another?"
     input = gets.chomp.upcase
     if input == "U"
-      @character.name
+      @character.name = input
     else
       puts "Wait that isn't it"
       generateName(gender)
@@ -74,7 +81,7 @@ class CreateCharacter
 
   def getStats()
     puts "Enter Stats"
-    stats = File.readlines("#{Dir.pwd}/lib/character/Stats.txt")
+    stats = getStatNames()
     for stat in stats
       puts "\nEnter #{stat} "
       @character.stats[stat.chomp] = gets.chomp.to_i
@@ -84,15 +91,16 @@ class CreateCharacter
 
   def getOccupation()
     puts "Enter Occupation name:"
-    name = gets.chomp
-    occupations = YAML.load_file("#{File.expand_path(Dir.pwd)}/lib/character/Occupations.yml")
+    #get formatted occupation name
+    name = getFormatted
+    occupations = getOccupationList()
 
     if occupations.key?(name)
       @occupation = occupations[name]
     else
       @occupation = Occupation.new()
       occupations[name] = @occupation
-      File.open(File.expand_path("#{File.expand_path(Dir.pwd)}/lib/character/Occupations.yml"), "w") {|f| f.write(occupations.to_yaml) }
+      saveOccupationsYML(occupations)
     end
   end
 
@@ -104,14 +112,14 @@ class CreateCharacter
 
     while !(@character.skills.key?(skillInput))
       puts "Not a skill, check spelling and re-enter skill: "
-      skillInput = gets.chomp
+      skillInput = getFormatted()
     end
     puts "Points remaining = #{@totalPoints - @spentPoints}"
     puts "Enter num points to add:"
-    numInput = gets.chomp
+    numInput = gets.chomp.to_i
 
-    @character.skills[skillInput] += numInput.to_i
-    @spentPoints += numInput.to_i
+    @character.skills[skillInput] += numInput
+    @spentPoints += numInput
     if (@totalPoints - @spentPoints) < 0
       @character.name = "#{@character.name} the Cheater"
       puts "At #{@totalPoints - @spentPoints} points!"
@@ -146,7 +154,7 @@ class CreateCharacter
   end
 
   def setInitialStatus()
-    statusList = File.readlines("#{Dir.pwd}/lib/character/status.txt")
+    statusList = getStatusNames()
     for stat in statusList
       @character.status[stat.chomp] = 0
     end
@@ -167,12 +175,12 @@ class CreateCharacter
     @character.status["Current Sanity"] = @character.stats["Power"]
     @character.status["Max Magic"] = (@character.stats["Power"]/5).to_i
     @character.status["Current Magic"] = (@character.stats["Power"]/5).to_i
+    @character.status["Trained Skills"] = []
   end
 
   def getJobPoints()
     points = 0
     for modifier in @occupation.modifier
-
       index = 0
       max = 0
       while index < modifier.length
@@ -186,6 +194,4 @@ class CreateCharacter
     end
     points
   end
-
-
 end

@@ -1,16 +1,16 @@
 --- !ruby/object:Character
-name: test guy
+name: Default
 stats:
-  Strength: 9
+  Strength: -9
   Size: 22
-  Dexterity: 30
-  Constitution: 40
-  Appearance: 45
+  Dexterity: 27
+  Constitution: 31
+  Appearance: 35
   Intelligence: 66
-  Education: 86
+  Education: 92
   Power: 88
   Luck: 99
-  Age: 55
+  Age: 77
 skills:
   Accounting: 5
   Acting: 5
@@ -24,7 +24,7 @@ skills:
   Axe: 15
   Biology: 1
   Botany: 1
-  Bow: 54
+  Bow: 60
   Brawl: 25
   Chainsaw: 10
   Charm: 15
@@ -55,7 +55,7 @@ skills:
   History: 5
   Hypnosis: 1
   Intimidate: 15
-  Jump: 65
+  Jump: 54
   Language (Other): 1
   Language (Own): 1000
   Law: 5
@@ -95,24 +95,23 @@ skills:
   Track: 10
   Whip: 5
   Zoology: 1
-weapons: {}
 backStory: {}
 equipment:
   Weapons:
-    bow and arrow: !ruby/object:Weapon
-      name: bow and arrow
-      skill: Skill (Firearms(MG), Firearms(handguns), Brawling, etc)
-      damage: Damage (2D4+2, 1D10, etc) (don't include Damage Bonus)
-      DB: Damage Bonus (DB, DB/2, 0, etc)
-      range: Base Range (100 yards, etc)
-      uses: Uses per Round (1, 2, burst(3), full auto, etc)
-      ammo: 1
-      malfunctions: 97
+    Brass Knuckles: !ruby/object:Weapon
+      name: Brass Knuckles
+      skill: Fighting (Brawling)
+      damage: 1D3+1
+      DB: DB
+      range: touch
+      uses: '1'
+      ammo: 0
+      malfunctions: 0
 status:
-  Max Health: 6
+  Max Health: 5
   Max Magic: 17
   Max Sanity: 88
-  Current Health: 6
+  Current Health: 5
   Current Magic: 17
   Current Sanity: 88
   Movement: 8

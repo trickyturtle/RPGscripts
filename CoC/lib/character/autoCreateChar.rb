@@ -102,7 +102,7 @@ module AutoCreate
 
 	#TODO add backstory, do something with the stuff below
 
-		occupations = File.readlines("#{File.expand_path("..", Dir.pwd)}/lib/Occupations.txt")
+		occupations = getOccupationList
 		puts "Job: " + occupations[rand(occupations.size)]
 
 		personality(true)

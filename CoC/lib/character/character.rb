@@ -1,38 +1,37 @@
 require 'yaml'
 require_relative '../../../lib/dice'
-#require_relative 'characterEditor'
+require_relative '../fileHandler'
 class Character
-  #include CharacterEditor
-  #extend CharacterEditor
   include Dice
+  include FileHandler
+
   attr_accessor :skills, :name, :stats, :weapons, :backstory, :equipment, :status
 
   #TODO Joe here I am initializing default values. Initialize is the constructor method in ruby
   def initialize()
     @name = "Default"
-    statNames = File.readlines("#{File.expand_path(Dir.pwd)}/lib/character/Stats.txt")
+    statNames = getStatNames()
     @stats = {}
     for stat in statNames
       @stats[stat.chomp] = 0
     end
 
-    @skills = YAML.load_file("#{File.expand_path(Dir.pwd)}/lib/character/Skills.yml")
-    #@skills = YAML.load_file("Skills.txt")
+    @skills = getSkillDefaults()
 
-    @weapons = {}
     @backStory = {}
     @equipment = {}
     @status = {}
   end
 
-  def saveCharacter()
-    File.open(File.expand_path("Characters/#{@name.delete(' ')}.yml"), "w") {|f| f.write(self.to_yaml) }
+  def train(skill)
+    if !@status["Trained Skills"].include?(skill)
+      @status["Trained Skills"].push(skill)
+    end
   end
 
-  # def loadCharacter(filename)
-  #   character = YAML.load_file("#{filename}")
-  #   self = character
-  # end
+  def saveCharacter()
+    File.open(File.expand_path("Characters/#{@name.gsub(' ', '_')}.yml"), "w") {|f| f.write(self.to_yaml) }
+  end
 
   def learn()
     improvementRoll = D(100)
@@ -53,13 +52,14 @@ class Character
 
   #This should only occur at creation.
   def applyAge()
+    #TODO apply movment penalties
     if @stats["Age"] < 15
       @stats["Strength"] -= D(10)
       @stats["Size"] -= D(10)
       @stats["Education"] -= 10
       newLuck = roll(6, 3) * 5
-      if newLuck > @luck
-        @luck = newLuck
+      if newLuck > @stats["Luck"]
+        @stats["Luck"] = newLuck
       end
     elsif @stats["Age"] < 20
       ageDecrease = D(5)
@@ -67,8 +67,8 @@ class Character
       @stats["Size"] -= (5 - ageDecrease)
       @stats["Education"] -= 5
       newLuck = roll(6, 3) * 5
-      if newLuck > @luck
-        @luck = newLuck
+      if newLuck > @stats["Luck"]
+        @stats["Luck"] = newLuck
       end
     elsif @stats["Age"] < 40
       #TODO Joe, self is exactly what is sounds like. the object tells itself to run the function. Often it isn't needed (it's usually implied by the scope), I just put it in for clarity. By that I mean self.learn() will do the exact same thing here as learn()

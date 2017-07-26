@@ -79,3 +79,10 @@ Athlete: !ruby/object:Occupation
     - '2'
     - Strength
     - '2'
+Military Officer: !ruby/object:Occupation
+  modifier:
+  - - Education
+    - '2'
+  - - Strength
+    - Dexterity
+    - '2'
